@@ -24,13 +24,13 @@ int main(){
 	 else{
 	 	time=end_time-start_time;
 	 	
-	 	if(time>=0 &&  time<=7 || time>=21 && time<=24){
+	 	if(time>0 &&  time<=7 || time>21 && time<=24){
 	 		amaunt=time*500;
 		 }
-		 else if(time>=7 && time<=14 || time>=19 &&  time<=21){
+		 else if(time>7 && time<=14 || time>19 &&  time<=21){
 	 		amaunt=time*1000;
 		 }
-		 else if(time>=14 && time<=19){
+		 else if(time>14 && time<=19){
 		 	amaunt=time*1500;
 		 
 		 }
