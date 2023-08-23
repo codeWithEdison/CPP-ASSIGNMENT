@@ -11,7 +11,7 @@
 using namespace std;
 int main(){
 	string gills, forest, ring, comvex_cup;
-	cout<<"----- please enter y for yes and n for no ------- \n \n";
+	cout<<"----- please enter  yes OR  no ------- \n \n";
 	cout<<"does your mushrooom have gills :\n";
 	cin>>gills;
 	cout<<"does your mushroom grow in forest ?: \n";
@@ -37,10 +37,7 @@ if(gills =="yes"&&forest =="yes"&&ring =="yes"){
 	cout<<" your mushroom is : PIED BLEU";
 	}
 	
-	else if (gills!="yes"||gills!="no"||forest!="yes"||forest!="no"||
-ring!="no"||ring!="no"){
-	cout<<" answer must be only either yes or no !!\n";
-}else
+else
 cout<<"no mushroom match!";	
 
 	return 0;
