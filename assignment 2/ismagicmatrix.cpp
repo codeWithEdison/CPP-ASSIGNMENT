@@ -52,19 +52,21 @@ for (int i = 0; i < n; ++i) {
     A.push_back({3, 5, 7});
     A.push_back({4, 9, 2});
     int n = A.size();
-    cout<< n<<endl;
-    if (ismagic(A)) {
-        cout << "This is a magic matrix!!\n";
-    } else {
-        cout << "This is not a magic matrix!!\n";
-    }
-    for(int i = 0; i<n; i++){
+
+     cout<<"your matrix:\n";
+             for(int i = 0; i<n; i++){
         for(int j = 0; j<n; j++){
             cout<<A[i][j]<<"\t";
         }
         cout<<endl;
     }
 
+    if (ismagic(A)) {
+        cout << "This is a magic matrix!!\n";
+    } else {
+        cout << "This is not a magic matrix!!\n";
+    }
+   
     return 0;
 }
   
