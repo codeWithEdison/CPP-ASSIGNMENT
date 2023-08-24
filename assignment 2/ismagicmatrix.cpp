@@ -18,21 +18,18 @@ bool ismagic(vector<vector<int> > matrix) {
     }
     
     // finding sum of each row and each column
-    // and check if it is equal to our sample
-    for (int i = 0; i < n; ++i) {
-        int row_sum = 0;
-        int column_sum = 0;
-        for (int j = 0; j < n; ++j) {
-            row_sum += matrix[i][j];
-            if (row_sum != sum) {
-                return false;
-            }
-            column_sum += matrix[j][i];
-            if (column_sum != sum) {
-                return false;
-            }
-        }
+// and check if it is equal to our sample
+for (int i = 0; i < n; ++i) {
+    int row_sum = 0;
+    int column_sum = 0;
+    for (int j = 0; j < n; ++j) {
+        row_sum += matrix[i][j];
+        column_sum += matrix[j][i];
     }
+    if (row_sum != sum || column_sum != sum) {
+        return false;
+    }
+}
     
     // finding sum of both diagonals and checking if they are equal to our sample
     int diagonal1_sum = 0;
@@ -51,17 +48,23 @@ bool ismagic(vector<vector<int> > matrix) {
 
  int main() {
     vector<vector<int> > A;
-    A.push_back({0, 0});
-    A.push_back({1, 1});
-    A.push_back({2, 2});
-
+    A.push_back({8, 1, 6});
+    A.push_back({3, 5, 7});
+    A.push_back({4, 9, 2});
+    int n = A.size();
+    cout<< n<<endl;
     if (ismagic(A)) {
         cout << "This is a magic matrix!!\n";
     } else {
         cout << "This is not a magic matrix!!\n";
     }
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<n; j++){
+            cout<<A[i][j]<<"\t";
+        }
+        cout<<endl;
+    }
 
     return 0;
 }
   
-
