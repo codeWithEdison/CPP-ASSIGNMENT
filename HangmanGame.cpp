@@ -4,13 +4,13 @@
 #include <algorithm>
 #include <random>
 #include <ctime>
-#include <set>
+#include <set> 
 
 // Function to get a random word from a predefined list
 std::string get_random_word() {
     std::vector<std::string> words = {"apple", "banana", "orange", "bea", "edison", "kiwi", "mango", "watermelon", "dudu"};
-    std::random_device rd;
-    std::mt19937 generator(rd());
+    std::random_device rd; 
+    std::mt19937 generator(rd()); // Mersenne Twister pseudo-random number generator
     std::shuffle(words.begin(), words.end(), generator);
     return words[0];
 }
