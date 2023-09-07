@@ -1,27 +1,21 @@
-
-//C++ assignment 3
-//contributors:
-//1.DUSHIME Dieudonne 222008981
-// 2.UWIHANGANYE Edison 222013008 3.
-// MUKAGASIRABO Beatrice 222004462
-
-
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <random>
 #include <ctime>
+#include <set>
 
+// Function to get a random word from a predefined list
 std::string get_random_word() {
-    std::vector<std::string> words = {"apple", "banana", "orange", "grape", "cherry", "kiwi", "mango", "watermelon"};
+    std::vector<std::string> words = {"apple", "banana", "orange", "bea", "edison", "kiwi", "mango", "watermelon", "dudu"};
     std::random_device rd;
     std::mt19937 generator(rd());
     std::shuffle(words.begin(), words.end(), generator);
     return words[0];
 }
 
+// Function to display the word with guessed letters and dashes for unknown letters
 std::string display_word(const std::string& word, const std::vector<char>& guessed_letters) {
     std::string displayed_word;
     for (char letter : word) {
@@ -34,10 +28,12 @@ std::string display_word(const std::string& word, const std::vector<char>& guess
     return displayed_word;
 }
 
+// Function to check if a character is a valid letter
 bool is_valid_input(char input_char) {
     return isalpha(input_char);
 }
 
+// Function to check if a character is a vowel
 bool is_vowel(char letter) {
     char lower_case_letter = tolower(letter);
     return (lower_case_letter == 'a' || lower_case_letter == 'e' || lower_case_letter == 'i' ||
@@ -45,10 +41,10 @@ bool is_vowel(char letter) {
 }
 
 int main() {
-    std::string word_to_guess = get_random_word();
-    std::vector<char> guessed_letters;
-    int warnings = 3;
-    int guesses_remaining = 6;
+    std::string word_to_guess = get_random_word(); // Get a random word for the player to guess
+    std::vector<char> guessed_letters; // Keep track of guessed letters
+    int warnings = 3; // Initial number of warnings available to the player
+    int guesses_remaining = 6; // Initial number of guesses available to the player
 
     std::cout << "Welcome to Hangman!\n";
     std::cout << "Guess the word one character at a time.\n";
@@ -92,7 +88,7 @@ int main() {
         } else {
             guessed_letters.push_back(user_input);
             if (word_to_guess.find(user_input) != std::string::npos) {
-                if (std::count(guessed_letters.begin(), guessed_letters.end(), user_input) == std::count(word_to_guess.begin(), word_to_guess.end(), user_input)) {
+                if (display_word(word_to_guess, guessed_letters) == word_to_guess) {
                     int score = guesses_remaining * std::set<char>(word_to_guess.begin(), word_to_guess.end()).size();
                     std::cout << "\nCongratulations! You guessed the word '" << word_to_guess << "' correctly!\n";
                     std::cout << "Your score is: " << score << std::endl;
