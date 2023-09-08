@@ -9,37 +9,48 @@
 
 #include<iostream>
 using namespace std;
-int main(){
-	string gills, forest, ring, comvex_cup;
-	cout<<"----- please enter  yes OR  no ------- \n \n";
-	cout<<"does your mushrooom have gills :\n";
-	cin>>gills;
-	cout<<"does your mushroom grow in forest ?: \n";
-	cin>> forest;
-	cout<<"does your mushroom have a ring ?: \n";
-	cin>> ring;
-	
 
-if(gills =="yes"&&forest =="yes"&&ring =="yes"){
-		cout<<"your mushroom is: AMANITE TUEMOUCHE";
-	}
-	else if(gills == "yes"&&forest == "no"&&ring =="yes"){
-		cout<<"your mushroom is : AGARIC JAUNISSANT";
-	}
-	else if(gills =="no"&&forest =="yes"&&ring =="no"){
-		cout<<"your mushroom is : CEPE DE BORDEAU";
-	}
-		else if(gills =="yes"&&forest =="yes"&&ring =="no"){
-		cout<<"does your mushroom have comvex cup? : \n";
-	cin>> comvex_cup;
-	if(comvex_cup =="yes") cout<<"your mushrooom is: GIROLLE ";
-	else if(comvex_cup =="no")
-	cout<<" your mushroom is : PIED BLEU";
-	}
-	
-else
-cout<<"no mushroom match!";	
+int main() {
+    // Define variables to store user input for mushroom characteristics
+    string gills, forest, ring, comvex_cup;
 
-	return 0;
+    // Prompt the user to provide yes or no answers for mushroom characteristics
+    cout << "----- please enter yes OR no ------- \n \n";
+    
+    cout << "does your mushroom have gills: \n";
+    cin >> gills;
+    
+    // First question
+    
+    if (gills == "yes") {
+        cout << "does your mushroom grow in a forest?: \n";
+        cin >> forest;
+        
+        // Second question
+        if (forest == "yes") {
+            cout << "does your mushroom have a ring?: \n";
+            cin >> ring;
+            
+            // Third question
+            if (ring == "yes") {
+                cout << "your mushroom is: AMANITE TUEMOUCHE";
+            } else {
+                cout << "your mushroom is: AGARIC JAUNISSANT";
+            }
+        } else {
+            cout << "your mushroom is: CEPE DE BORDEAU";
+        }
+    } else {
+        cout << "does your mushroom have a convex cup?: \n";
+        cin >> comvex_cup;
+        
+        // Second question
+        if (comvex_cup == "yes") {
+            cout << "your mushroom is: GIROLLE";
+        } else {
+            cout << "your mushroom is: PIED BLEU";
+        }
+    }
+
+    return 0;
 }
-
