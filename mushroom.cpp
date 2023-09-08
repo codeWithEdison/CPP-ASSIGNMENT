@@ -7,7 +7,8 @@
 //GIROLLE:-GILLS->FORESTS->(NO COMVEX CUP)->(NO RING)
 //PIED BLEU:-GILLS->FOREST-> COMVEX CUP->(NO RING)
 
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -16,21 +17,34 @@ int main() {
 
     // Prompt the user to provide yes or no answers for mushroom characteristics
     cout << "----- please enter yes OR no ------- \n \n";
-    
+
+    // Function to get valid input ("yes" or "no") from the user
+    auto getValidInput = []() -> string {
+        string input;
+        while (true) {
+            cin >> input;
+            if (input == "yes" || input == "no") {
+                break;
+            } else {
+                cout << "Please enter 'yes' or 'no': ";
+            }
+        }
+        return input;
+    };
+
     cout << "does your mushroom have gills: \n";
-    cin >> gills;
-    
+    gills = getValidInput();
+
     // First question
-    
     if (gills == "yes") {
         cout << "does your mushroom grow in a forest?: \n";
-        cin >> forest;
-        
+        forest = getValidInput();
+
         // Second question
         if (forest == "yes") {
             cout << "does your mushroom have a ring?: \n";
-            cin >> ring;
-            
+            ring = getValidInput();
+
             // Third question
             if (ring == "yes") {
                 cout << "your mushroom is: AMANITE TUEMOUCHE";
@@ -42,8 +56,8 @@ int main() {
         }
     } else {
         cout << "does your mushroom have a convex cup?: \n";
-        cin >> comvex_cup;
-        
+        comvex_cup = getValidInput();
+
         // Second question
         if (comvex_cup == "yes") {
             cout << "your mushroom is: GIROLLE";
